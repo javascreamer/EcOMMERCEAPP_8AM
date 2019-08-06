@@ -1,0 +1,42 @@
+<br><br><br><div>
+  <h2>Login Here!</h2>
+
+  <div *ngIf="errorStatus" class="alert alert-success">
+     <strong>Logged in success</strong>
+  </div>
+  <div *ngIf="errorStatus == false" class="alert alert-danger">
+    <strong>{{userResponse?.message}}</strong>
+ </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
+    
+    <div class="form-group">
+      <label for="email">EmailId:</label>
+      <input
+      formControlName="emailId"
+      type="text" class="form-control" placeholder="Enter emailId" name="emailId">
+    </div>
+
+    <div *ngIf="emailId.touched && emailId.invalid">
+      <div class="red" *ngIf="emailId.errors.required">emailId should not be empty</div>
+      <div  class="red" *ngIf="emailId.errors.pattern">Your email is not correct!!</div>
+    </div>
+   
+
+    <div class="form-group">
+      <label for="email">password:</label>
+      <input
+      formControlName="password"
+      type="password" class="form-control" placeholder="Enter Password" name="password">
+    </div>
+    <div *ngIf="password.touched && password.invalid">
+      <div class="red" *ngIf="password.errors.required">password should not be empty</div>
+      <div  class="red" *ngIf="password.errors.pattern">password does not meet criteria</div>
+    </div>
+
+  
+    <button [disabled]="loginForm.invalid"  class="btn btn-primary">Login</button>
+
+    <a routerLink="register">Click to Register</a>
+  </form>
+</div>

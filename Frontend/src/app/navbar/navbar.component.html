@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <a class="navbar-brand" routerLink="home">SnapDeal</a>
+  <ul class="navbar-nav"> 
+    <li class="nav-item">
+      <a  class="nav-link" routerLink="addProduct">Add Product</a>
+    </li>
+
+    <li class="nav-item">
+      <a  class="nav-link" routerLink="viewProducts">View Products</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="navbarLinks.login" class="nav-link" routerLink="login">Login</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="navbarLinks.register" class="nav-link" routerLink="register">Register</a>
+    </li>
+    <li class="nav-item" *ngIf="isUserLoggedIn">
+        <a *ngIf="navbarLinks.cart" class="nav-link" routerLink="cart">Cart</a>
+      </li>
+      <li class="nav-item" *ngIf="isUserLoggedIn">
+          <a *ngIf="navbarLinks.todaydeals" class="nav-link" routerLink="todaydeals">Today's Deals</a>
+        </li>
+        <li class="nav-item">
+            <a *ngIf="navbarLinks.giftcard" class="nav-link" routerLink="giftcards">Gift Cards</a>
+          </li>
+        <li class="nav-item">
+            <a *ngIf="navbarLinks.logout" class="nav-link" routerLink="logout">logout</a>
+          </li>
+  
+  </ul>
+</nav>
+

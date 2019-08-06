@@ -1,0 +1,64 @@
+<br><br><br><div>
+  <h2>Edit Product Here</h2>
+
+  <form [formGroup]="product" (ngSubmit)="updateProduct(product)">
+    
+    <div class="form-group">
+      <label>ProductName</label>
+      <input 
+      formControlName="productName" [(ngModel)]="productData.productName"
+      type="text" class="form-control" placeholder="Enter ProductName" >
+    </div>
+
+    <div *ngIf="productName.touched && productName.invalid">
+      <div class="red" *ngIf="productName.errors.required">productName should not be empty</div>
+      <div  class="red" *ngIf="productName.errors.minlength">productName should be atleast 5</div>
+      <div  class="red" *ngIf="productName.errors.maxlength">productName cannot exceed 200</div>
+    </div>
+
+    <div class="form-group">
+      <label>Product Description</label>
+      <textarea 
+      formControlName="productDescription" [(ngModel)]="productData.productDescription"
+       class="form-control" placeholder="Enter Product Description" ></textarea>
+    </div>
+
+    <div *ngIf="productDescription.touched && productDescription.invalid">
+      <div class="red" *ngIf="productDescription.errors.required">product Description should not be empty</div>
+      <div  class="red" *ngIf="productDescription.errors.minlength">product description should be atleast 20</div>
+      <div  class="red" *ngIf="productDescription.errors.maxlength">product desc cannot exceed 200</div>
+    </div>
+
+    <div class="form-group">
+      <label>Product URL</label>
+      <textarea 
+      formControlName="productURL" [(ngModel)]="productData.productURL"
+       class="form-control" placeholder="Enter Product url" ></textarea>
+    </div>
+
+    <div *ngIf="productURL.touched && productURL.invalid">
+      <div class="red" *ngIf="productURL.errors.required">product URL should not be empty</div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Product Price</label>
+      <input 
+      formControlName="productPrice" [(ngModel)]="productData.productPrice"
+       class="form-control" placeholder=" Enter productPrice" >
+    </div>
+    <div *ngIf="productPrice.touched && productPrice.invalid">
+      <div class="red" *ngIf="productPrice.errors.required">product price should not be empty</div>
+    </div>
+
+    <div class="form-group">
+      <label>Select Category</label>
+      <select 
+      formControlName="category"  
+       class="form-control" >
+       <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
+  </div>
+    <button  class="btn btn-primary" [disabled]="product.invalid">Submit</button>
+  </form>
+</div>

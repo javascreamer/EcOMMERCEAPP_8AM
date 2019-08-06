@@ -1,0 +1,20 @@
+
+Requirements:
+
+1. create post API end point called addBlog, which should take
+blogname, blogid, blog description and blog image url.
+
+note: display data in console.
+
+2. create get API end point called getPosts, which should return
+a list of posts . 
+
+note: return an array of posts as part of response.
+
+3. create get API end point called getPost/id, which should 
+return a specific post.
+
+note: you need to use the following url
+
+htpp://localhost:portno/getPost/1
+

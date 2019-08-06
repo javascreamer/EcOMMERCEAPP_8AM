@@ -1,0 +1,34 @@
+
+<br>
+<br>
+
+<div class="container">
+    <h3 class="h3">Products </h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let product of allProducts">
+            <div class="product-grid5">
+                <div class="product-image5">
+                    <a href="#">
+                        <img class="pic-1" src="{{product.productURL}}">
+                        <img class="pic-2" src="{{product.productURL}}">
+                       
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>
+                </div>
+                <div class="product-content">
+                  <h3 class="title"><a routerLink="detailProduct/{{product.productId}}">{{product.productName}}</a></h3>
+                  <div class="price"> INR.{{product.productPrice}}</div>
+                  <div class="title">{{product.productDescription}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+
